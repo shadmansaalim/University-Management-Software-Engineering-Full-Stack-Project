@@ -1,13 +1,21 @@
 // Imports
-import express, { Application, } from 'express';
+import express, { Application, Request, Response } from 'express';
+import cors from 'cors'
 
 // Express App
 const app: Application = express();
 
 
+// Using cors
+app.use(cors());
 
-// Hello World GET API
-app.get('/', (req, res) => {
+// Parser
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+// Hello World GET API for TESTING
+app.get('/', (req: Request, res: Response) => {
     res.send('Hello World!')
 })
 
